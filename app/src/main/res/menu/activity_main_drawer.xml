@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_chat"
+            android:icon="@drawable/ic_menu_chat"
+            android:title="Habla con pimo" />
+        <item
+            android:id="@+id/nav_reminder"
+            android:icon="@drawable/ic_menu_reminder"
+            android:title="Mis recordatorios" />
+        <item
+            android:id="@+id/nav_note"
+            android:icon="@drawable/ic_menu_note"
+            android:title="Mis notas" />
+        <item
+            android:id="@+id/nav_contact"
+            android:icon="@drawable/ic_menu_contact"
+            android:title="Directorio de profesores" />
+        <item
+            android:id="@+id/nav_schedule"
+            android:icon="@drawable/ic_menu_schedule"
+            android:title="Horario" />
+    </group>
+
+    <item android:title="Sobre pimo">
+        <menu>
+            <item
+                android:id="@+id/nav_faqs"
+                android:icon="@drawable/ic_menu_faqs"
+                android:title="Preguntas frecuentes" />
+            <item
+                android:id="@+id/nav_info"
+                android:icon="@drawable/ic_menu_info"
+                android:title="Informacion de la aplicacion" />
+        </menu>
+    </item>
+
+</menu>
