@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBackSec"
+    android:clipToPadding="false"
+    android:focusableInTouchMode="true"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".Forms.Frm_Add_Recordatorio"
+    tools:showIn="@layout/activity_frm__add__recordatorio">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="25dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/txf_title_add_recordatorio_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Titulo"
+            android:textSize="20sp"
+            android:fontFamily="@font/muli_semibold"
+            android:textColor="@color/colorTextMain"
+            android:background="@null"
+            android:inputType="textCapSentences"/>
+
+        <EditText
+            android:id="@+id/txf_date_add_recordatorio_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:ems="10"
+            android:hint="Fecha"
+            android:fontFamily="@font/hind"
+            android:textColor="@color/colorTextSecond"
+            android:drawableLeft="@drawable/ic_date"
+            android:drawablePadding="5dp"
+            android:inputType="date" />
+
+
+        <EditText
+            android:id="@+id/txf_time_add_recordatorio_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:ems="10"
+            android:hint="Hora"
+            android:fontFamily="@font/hind"
+            android:textColor="@color/colorTextSecond"
+            android:drawableLeft="@drawable/ic_time"
+            android:drawablePadding="5dp"
+            android:inputType="time" />
+
+        <EditText
+            android:id="@+id/txf_coment_add_recordatorio_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="top"
+            android:ems="10"
+            android:hint="Comentario"
+            android:textSize="16sp"
+            android:fontFamily="@font/hind"
+            android:textColor="@color/colorTextSecond"
+            android:background="@null"
+            android:inputType="textMultiLine|textCapSentences" />
+    </LinearLayout>
+</LinearLayout>

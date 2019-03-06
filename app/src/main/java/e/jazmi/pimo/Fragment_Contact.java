@@ -4,9 +4,18 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
+
+import e.jazmi.pimo.Adapters.Adapter_directorio;
+import e.jazmi.pimo.Adapters.Adapter_recordatorios;
+import e.jazmi.pimo.Atributos.Atributos_Directorio;
 
 
 /**
@@ -28,6 +37,10 @@ public class Fragment_Contact extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    ArrayList<Atributos_Directorio> list_directorios;
+    RecyclerView recycler_content_directorio;
+
 
     public Fragment_Contact() {
         // Required empty public constructor
@@ -63,8 +76,27 @@ public class Fragment_Contact extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View vista = inflater.inflate(R.layout.fragment_fragment__contact, container, false);
+        list_directorios = new ArrayList<>();
+        recycler_content_directorio = (RecyclerView) vista.findViewById(R.id.container_recycler_directorio_id);
+//        recycler_content_directorio.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL,false));
+        recycler_content_directorio.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        get_directorio();
+
+        Adapter_directorio adapter_directorio = new Adapter_directorio(list_directorios);
+        recycler_content_directorio.setAdapter(adapter_directorio);
+
+
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment__contact, container, false);
+        return vista;
+    }
+
+    private void get_directorio() {
+        list_directorios.add(new Atributos_Directorio("Ing. Software","Mani"));
+        list_directorios.add(new Atributos_Directorio("Ingles","Atisha"));
+        list_directorios.add(new Atributos_Directorio("Base de datos","Tony Stark"));
+        list_directorios.add(new Atributos_Directorio("Valores","La Diana"));
     }
 
     // TODO: Rename method, update argument and hook method into UI event
