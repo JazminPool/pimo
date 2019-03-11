@@ -18,12 +18,13 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="?attr/colorPrimaryDark"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
         <android.support.v7.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
+            android:background="?attr/colorPrimaryDark"
             android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <ImageView
@@ -35,16 +36,17 @@
 
             <TextView
                 android:id="@+id/title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:text="Agregando nuevo recordatorio "
                 android:fontFamily="@font/muli"
                 android:textSize="20dp"
+                android:textColor="@color/TextWhite"
                 android:layout_gravity="center"
                 android:paddingLeft="7dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:layout_marginRight="15dp"
-                android:text="Agregando nuevo recordatorio " />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
         </android.support.v7.widget.LinearLayoutCompat>
 
@@ -54,13 +56,14 @@
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:elevation="6dp"
-        app:pressedTranslationZ="10dp"
+        app:srcCompat="@drawable/ic_action_save"
+        app:backgroundTint="@color/colorPrimaryLight"
         app:layout_anchor="@id/app_bar_layout_add_recordatorio"
         app:layout_anchorGravity="bottom|right|end"
+        android:elevation="6dp"
+        app:pressedTranslationZ="10dp"
         android:layout_marginRight="15dp"
-        app:srcCompat="@drawable/ic_action_save" />
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"/>
 
 </android.support.design.widget.CoordinatorLayout>

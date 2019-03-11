@@ -5,11 +5,11 @@ public class Atributos_Directorio {
 
     public Atributos_Directorio(){}
 
-    public Atributos_Directorio(String materia_profesor, String nombre_profesor){
+    public Atributos_Directorio(String materia_profesor, String nombre_profesor, String correo_profesor, String telefono_profesor){
         this.nombre_profesor   = nombre_profesor;
         this.materia_profesor  = materia_profesor;
-//        this.correo_profesor   = correo_profesor;
-//        this.telefono_profesor = telefono_profesor;
+        this.correo_profesor   = correo_profesor;
+        this.telefono_profesor = telefono_profesor;
     }
 
 
@@ -29,20 +29,20 @@ public class Atributos_Directorio {
     public void setMateria_profesor(String materia_profesor) {
         this.materia_profesor = materia_profesor;
     }
-//
-//    public String getCorreo_profesor() {
-//        return correo_profesor;
-//    }
-//
-//    public void setCorreo_profesor(String correo_profesor) {
-//        this.correo_profesor = correo_profesor;
-//    }
-//
-//    public String getTelefono_profesor() {
-//        return telefono_profesor;
-//    }
-//
-//    public void setTelefono_profesor(String telefono_profesor) {
-//        this.telefono_profesor = telefono_profesor;
-//    }
+
+    public String getCorreo_profesor() {
+        return correo_profesor;
+    }
+
+    public void setCorreo_profesor(String correo_profesor) {
+        this.correo_profesor = correo_profesor;
+    }
+
+    public String getTelefono_profesor() {
+        return telefono_profesor;
+    }
+
+    public void setTelefono_profesor(String telefono_profesor) {
+        this.telefono_profesor = telefono_profesor;
+    }
 }

@@ -108,13 +108,24 @@ public class Fragment_Notas extends Fragment {
 
     //aqui es donde se llena el recycler
     public void get_notas(){
-        list_notas.add(new Atributos_Nota("Nota 01","mi nota fragmet fragmet fragmet fragmet fragmet fragmet fragmet fragmet"));
-        list_notas.add(new Atributos_Nota("dasdad","mi nota fragmet 1"));
-        list_notas.add(new Atributos_Nota("dasda","mi nota fragmet 1"));
-        list_notas.add(new Atributos_Nota("26/02","mi nota fragmet 1"));
-        list_notas.add(new Atributos_Nota("lhdsiakbja","mi nota fragmet 1"));
-        list_notas.add(new Atributos_Nota("what","mi nota fragmet 1"));
-        list_notas.add(new Atributos_Nota("pruebaxd","mi nota fragmet 1"));
+        list_notas.add(new Atributos_Nota("Why do we use it?",
+                                          "It is a long established fact that a reader " +
+                                                  "will be distracted by the readable content of " +
+                                                  "a page when looking at its layout. The point of " +
+                                                  "using Lorem Ipsum is that it has a more-or-less " +
+                                                  "normal distribution of letters, as opposed to " +
+                                                  "using 'Content here, content here', "));
+        list_notas.add(new Atributos_Nota("What is Lorem Ipsum?",
+                                          "Lorem Ipsum is simply dummy text of the printing and " +
+                                                  "typesetting industry. Lorem Ipsum has been the " +
+                                                  "industry's standard dummy text ever since the 1500s, " +
+                                                  "when an unknown printer took a galley of type and " +
+                                                  "scrambled it to make a type specimen book."));
+        list_notas.add(new Atributos_Nota("Where does it come from?",
+                                          "Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n" +
+                                                  "In tincidunt lectus at erat finibus ultrices.\n" +
+                                                  "Duis consectetur nunc nec accumsan sagittis."));
+
     }
 
 

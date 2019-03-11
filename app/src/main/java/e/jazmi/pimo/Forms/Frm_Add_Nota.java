@@ -33,7 +33,7 @@ public class Frm_Add_Nota extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Boton de guardar", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Wolf! π-mo ha guardado tu nota.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });

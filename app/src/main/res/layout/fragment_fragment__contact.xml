@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragment_Contact">
 
-    <!--&lt;!&ndash; TODO: Update blank fragment layout &ndash;&gt;-->
-    <!--<TextView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:text="@string/hello_blank_fragment" />-->
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/container_recycler_directorio_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-</FrameLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_add_profe"
+        app:srcCompat="@drawable/ic_action_add"
+        android:elevation="6dp"
+        app:pressedTranslationZ="10dp"
+        app:backgroundTint="@color/colorPrimaryLight"
+        android:layout_gravity="right|bottom"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</android.support.design.widget.CoordinatorLayout>

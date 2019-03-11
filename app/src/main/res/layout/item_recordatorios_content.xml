@@ -7,67 +7,121 @@
     android:paddingRight="5dp"
     android:paddingTop="3dp"
     android:paddingBottom="3dp"
+    android:background="@color/backGray"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <android.support.v7.widget.CardView
+        android:focusable="true"
+        android:clickable="true"
+        card_view:cardElevation="2dp"
+        card_view:cardCornerRadius="2dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        card_view:cardPreventCornerOverlap="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        card_view:cardElevation="2dp"
         card_view:cardUseCompatPadding="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:paddingBottom="8dp"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
             android:orientation="vertical">
 
-
-            <TextView
-                android:id="@+id/txf_title_recordatorio_item_id"
+            <!--Linear del header-->
+            <LinearLayout
+                android:background="@color/colorPrimaryDark"
+                android:paddingTop="10dp"
+                android:paddingBottom="8dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/muli_semibold"
-                android:textColor="@color/colorTextMain"
-                android:textSize="20dp"
-                android:text="Mi recordatorio" />
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/txf_hora_recordatorio_item_id"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/hind"
-                android:textSize="15dp"
-                android:textColor="@color/colorTextSecond"
-                android:text="Hora: 7:00 am" />
+                <TextView
+                    android:id="@+id/txf_title_recordatorio_item_id"
+                    android:text="Mi recordatorio"
+                    android:textSize="20dp"
+                    android:fontFamily="@font/montserrat"
+                    android:textColor="@color/TextWhite"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
-            <TextView
-                android:id="@+id/txf_fecha_recordatorio_item_id"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/hind"
-                android:textSize="15dp"
-                android:textColor="@color/colorTextSecond"
-                android:text="Fecha: 20/02/2019" />
+                <TextView
+                    android:id="@+id/txf_fecha_fue_creado_recordatorio"
+                    android:text="Creado a las 07:37 pm"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/hind_medium"
+                    android:textColor="@color/TextWhite"
+                    android:gravity="right|center_vertical"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
-            <TextView
-                android:id="@+id/txf_comentario_recordatorio_item_id"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/hind"
-                android:textSize="15dp"
-                android:textColor="@color/colorTextSecond"
-                android:text="Comentario" />
+            </LinearLayout>
 
-            <View
+
+            <!--Linear comentario-->
+            <LinearLayout
+                android:paddingTop="10dp"
+                android:paddingBottom="8dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="3dp"
-                android:layout_marginBottom="3dp"
-                android:background="@color/colorBackLine"/>
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txf_comentario_recordatorio_item_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/hind"
+                    android:textSize="16dp"
+                    android:textColor="@color/colorTextSecond"
+                    android:text="Comentario" />
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/colorBackLine"/>
+
+            </LinearLayout>
+
+
+            <!--Linear del footer-->
+            <LinearLayout
+                android:paddingBottom="8dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txf_hora_recordatorio_item_id"
+                    android:text="Hora: 7:00 am"
+                    android:textSize="12dp"
+                    android:fontFamily="@font/hind"
+                    android:textColor="@color/colorTextSecond"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/txf_fecha_recordatorio_item_id"
+                    android:text="Fecha: 20/02/2019"
+                    android:textSize="12dp"
+                    android:fontFamily="@font/hind"
+                    android:textColor="@color/colorTextSecond"
+                    android:gravity="right"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
+            </LinearLayout>
 
         </LinearLayout>
 

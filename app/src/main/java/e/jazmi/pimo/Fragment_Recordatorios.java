@@ -105,11 +105,33 @@ public class Fragment_Recordatorios extends Fragment {
 
     //aqui es donde se llena el recycler
     public void get_recordatorios(){
-        list_recordatorios.add(new Atributos_Recordatorios("Titleee", "Hora: 07:00:00 am", "Fecha: 02-02-2019", "micomentario"));
-        list_recordatorios.add(new Atributos_Recordatorios("Titleee", "Hora: 07:00:00 am", "Fecha: 02-02-2019", "micomentario"));
-        list_recordatorios.add(new Atributos_Recordatorios("Titleee", "Hora: 07:00:00 am", "Fecha: 02-02-2019", "micomentario"));
-        list_recordatorios.add(new Atributos_Recordatorios("Titleee", "Hora: 07:00:00 am", "Fecha: 02-02-2019", "micomentario"));
-        list_recordatorios.add(new Atributos_Recordatorios("Titleee", "Hora: 07:00:00 am", "Fecha: 02-02-2019", "micomentario"));
+        list_recordatorios.add(new Atributos_Recordatorios( "Examen de Xiu",
+                                                            "Hora: 15:00 pm",
+                                                            "Fecha: 04-02-2019",
+                                                            "Estudiar cosas de diseño en android"));
+
+        list_recordatorios.add(new Atributos_Recordatorios("Enviar tarea de Ingles",
+                                                            "Hora: 07:00 am",
+                                                            "Fecha: 02-02-2019",
+                                                            "Enviar el verbo to be con la vieja \n" +
+                                                                    "There are many variations of passages of Lorem Ipsum available, " +
+                                                                    "but the majority have suffered alteration in some form, by injected " +
+                                                                    "humour, or randomised words which don't look even slightly believable. "));
+
+        list_recordatorios.add(new Atributos_Recordatorios("Entrevista",
+                                                            "Hora: 07:00 am",
+                                                            "Fecha: 02-03-2019",
+                                                            "Entrevista de trabajo xd"));
+
+        list_recordatorios.add(new Atributos_Recordatorios("Avances con Mani",
+                                                            "Hora: 07:00 am",
+                                                            "Fecha: 02-02-2019",
+                                                            "Entregar los modificados"));
+
+        list_recordatorios.add(new Atributos_Recordatorios("Tarea de Xiu",
+                                                            "Hora: 10:50 am",
+                                                            "Fecha: 02-02-2019",
+                                                            "Entregar su app con menu de navegacion"));
 
     }
 
