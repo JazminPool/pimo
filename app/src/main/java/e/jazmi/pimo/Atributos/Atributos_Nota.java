@@ -1,30 +1,34 @@
 package e.jazmi.pimo.Atributos;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Atributos_Nota {
 
-    private String titulo_nota;
-    private String nota;
+    @SerializedName("titulo")
+    private String titulo;
+    @SerializedName("descripcion")
+    private String descripcion;
 
     public Atributos_Nota(){ }
 
-    public Atributos_Nota(String titulo_nota, String nota) {
-        this.titulo_nota = titulo_nota;
-        this.nota = nota;
+    public Atributos_Nota(String titulo, String descripcion) {
+        this.titulo = titulo;
+        this.descripcion = descripcion;
     }
 
-    public String getTitulo_nota() {
-        return titulo_nota;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setTitulo_nota(String titulo_nota) {
-        this.titulo_nota = titulo_nota;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
-    public String getNota() {
-        return nota;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setNota(String nota) {
-        this.nota = nota;
+    public void setDescripcion(String Descripcion) {
+        this.descripcion = descripcion;
     }
 }
