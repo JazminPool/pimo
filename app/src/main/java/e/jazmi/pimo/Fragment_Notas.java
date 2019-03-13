@@ -1,10 +1,10 @@
 package e.jazmi.pimo;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +13,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+
+import e.jazmi.pimo.Adapters.Adapter_notas;
+import e.jazmi.pimo.Atributos.Atributos_Nota;
+import e.jazmi.pimo.Forms.Frm_Add_Nota;
 
 
 /**
@@ -64,24 +68,17 @@ public class Fragment_Notas extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-//        FloatingActionButton fab;
-//         fab= (FloatingActionButton) findViewById(R.id.floating_add_nota_id);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
 
         View vista = inflater.inflate(R.layout.fragment_fragment__notas, container, false);
         list_notas = new ArrayList<>();
@@ -95,12 +92,23 @@ public class Fragment_Notas extends Fragment {
         Adapter_notas adapter_notass = new Adapter_notas(list_notas);
         recycler_content_notas.setAdapter(adapter_notass);
 
+
+        FloatingActionButton fab= vista.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(), Frm_Add_Nota.class);
+                getActivity().startActivity(i);
+            }
+        });
+
+
         return vista;
     }
 
     //aqui es donde se llena el recycler
     public void get_notas(){
-        list_notas.add(new Atributos_Nota("Recordarotio","mi nota fragmet fragmet fragmet fragmet fragmet fragmet fragmet fragmet"));
+        list_notas.add(new Atributos_Nota("Nota 01","mi nota fragmet fragmet fragmet fragmet fragmet fragmet fragmet fragmet"));
         list_notas.add(new Atributos_Nota("dasdad","mi nota fragmet 1"));
         list_notas.add(new Atributos_Nota("dasda","mi nota fragmet 1"));
         list_notas.add(new Atributos_Nota("26/02","mi nota fragmet 1"));

@@ -1,12 +1,22 @@
 package e.jazmi.pimo;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
+
+import e.jazmi.pimo.Adapters.Adapter_recordatorios;
+import e.jazmi.pimo.Atributos.Atributos_Recordatorios;
+import e.jazmi.pimo.Forms.Frm_Add_Recordatorio;
 
 
 /**
@@ -28,6 +38,10 @@ public class Fragment_Recordatorios extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    ArrayList<Atributos_Recordatorios> list_recordatorios;
+    RecyclerView recycler_content_recordatorio;
+
 
     public Fragment_Recordatorios() {
         // Required empty public constructor
@@ -63,9 +77,42 @@ public class Fragment_Recordatorios extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment__recordatorios, container, false);
+
+        View vista = inflater.inflate(R.layout.fragment_fragment__recordatorios, container, false);
+        list_recordatorios = new ArrayList<>();
+        recycler_content_recordatorio = (RecyclerView) vista.findViewById(R.id.container_recycler_recordatorios_id);
+        recycler_content_recordatorio.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        get_recordatorios();
+
+        Adapter_recordatorios adapter_recordatorios = new Adapter_recordatorios(list_recordatorios);
+        recycler_content_recordatorio.setAdapter(adapter_recordatorios);
+
+        /**ir a activity*/
+        FloatingActionButton fab= vista.findViewById(R.id.fab_recordatorios);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(), Frm_Add_Recordatorio.class);
+                getActivity().startActivity(i);
+            }
+        });
+
+
+
+        return vista;
     }
+
+    //aqui es donde se llena el recycler
+    public void get_recordatorios(){
+        list_recordatorios.add(new Atributos_Recordatorios("Titleee", "Hora: 07:00:00 am", "Fecha: 02-02-2019", "micomentario"));
+        list_recordatorios.add(new Atributos_Recordatorios("Titleee", "Hora: 07:00:00 am", "Fecha: 02-02-2019", "micomentario"));
+        list_recordatorios.add(new Atributos_Recordatorios("Titleee", "Hora: 07:00:00 am", "Fecha: 02-02-2019", "micomentario"));
+        list_recordatorios.add(new Atributos_Recordatorios("Titleee", "Hora: 07:00:00 am", "Fecha: 02-02-2019", "micomentario"));
+        list_recordatorios.add(new Atributos_Recordatorios("Titleee", "Hora: 07:00:00 am", "Fecha: 02-02-2019", "micomentario"));
+
+    }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

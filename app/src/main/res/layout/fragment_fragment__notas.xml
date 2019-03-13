@@ -10,31 +10,34 @@
     tools:context=".Fragment_Notas">
 
 
-    <!--<TextView-->
-        <!--android:id="@+id/textView2"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:background="#607d8a"-->
-        <!--android:textColor="#8dabb9"-->
-        <!--android:textSize="20dp"-->
-        <!--android:paddingLeft="15dp"-->
-        <!--android:paddingTop="10dp"-->
-        <!--android:paddingBottom="10dp"-->
-        <!--android:text="Notas" />-->
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#607d8a"
+        android:textColor="#8dabb9"
+        android:textSize="20dp"
+        android:paddingLeft="15dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text=" > Mis notas" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:background="#607d8a"
+        app:srcCompat="@drawable/ic_action_add" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/container_recycler_notas_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <!--<android.support.design.widget.FloatingActionButton-->
-        <!--android:id="@+id/floating_add_nota_id"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_gravity="bottom|end"-->
-        <!--android:layout_margin="@dimen/fab_margin"-->
-        <!--android:background="#607d8a"-->
-        <!--app:srcCompat="@drawable/ic_action_add" />-->
+
+
 
 
 </LinearLayout>
