@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBackSec"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".Forms.Frm_Add_Nota"
+    tools:showIn="@layout/activity_frm__add__nota">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="25dp"
+        android:orientation="vertical">
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/txf_title_add_nota_id"
+                android:hint="Titulo de nota"
+                android:inputType="textCapSentences"
+                android:textSize="20sp"
+                android:fontFamily="@font/muli_semibold"
+                android:textColor="@color/colorTextMain"
+                android:background="@null"
+                android:ems="10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="3dp"
+            android:background="#d3c7c7c7"/>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_coment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/txf_nota_add_content_id"
+                android:hint="Mi nota"
+                android:fontFamily="@font/hind"
+                android:textColor="@color/colorTextSecond"
+                android:textSize="16sp"
+                android:background="@null"
+                android:ems="10"
+                android:gravity="top"
+                android:layout_marginTop="10dp"
+                android:inputType="textMultiLine|textCapSentences"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

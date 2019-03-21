@@ -1,7 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#607D8B</color>
-    <color name="colorPrimaryDark">#546E7A</color>
-    <color name="colorAccent">#0288D1</color>
-    <!--<color name="colorAccent">#0091EA</color>-->
+    <!--Primario-->
+    <color name="colorPrimary">#7fa6bc</color>
+    <color name="colorPrimaryDark">#50778c</color>
+    <color name="colorPrimaryLight">#b0d7ee</color>
+    <!--Secundario-->
+    <color name="colorSecondary">#47759e</color>
+    <color name="colorSecondaryDark">#0e4a6f</color>
+    <color name="colorSecondaryLight">#78a4cf</color>
+    <!--Highlight-->
+    <color name="colorHighLight">#bdc5cccf</color>
+    <color name="backGray">#F5F5F6</color>
+
+    <!--Textos-->
+    <color name="TextBlack">#212121</color>
+    <color name="TextGrayDark">#37474f</color>
+    <color name="TextGrayLight">#90a4ae</color>
+    <color name="TextBlueGray">#455a64</color>
+    <color name="TextWhite">#fafafa</color>
+
+
+
+    <!--<color name="colorAccent">#157b87</color>-->
+
+
+    <!--<color name="colorPrimary">#53aab7</color>-->
+    <!--<color name="colorPrimaryDark">#157b87</color>-->
+    <!--<color name="colorAccent">#157b87</color>-->
+
+    <!--<color name="colorPrimary">#57adb9</color>-->
+    <!--<color name="colorPrimaryDark">#4a959f</color>-->
+    <!--<color name="colorAccent">#84c7c1</color>-->
+    <!--<color name="colorAccent">#81c3bd</color>-->
+
+    <!--Textos-->
+    <color name="colorTextMain">#4a849f</color>
+    <color name="colorTextSecond">#464646</color>
+    <color name="colorText_Subtitle_Gray">#bebebe</color>
+    <color name="white">#ffffff</color>
+
+
+
+
+    <!-- Background -->
+    <color name="colorBackMain">#ecfcfcfc</color>
+    <color name="colorBackSec">#1a6f8d9b</color>
+    <color name="colorBackLine">#494a849f</color>
+    <!--<color name="colorBackLine">#37243436</color>-->
+    <!--<color name="colorBackLine">#70436569</color>-->
+
 </resources>
+
+    <!--<color name="colorPrimary">#607D8B</color>-->
+    <!--<color name="colorPrimaryDark">#546E7A</color>-->
+    <!--<color name="colorAccent">#0288D1</color>-->
+
+    <!--<color name="colorAccent">#0091EA</color>-->

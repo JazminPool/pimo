@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Forms.Frm_Add_Recordatorio">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar_layout_add_recordatorio"
+        android:fitsSystemWindows="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimaryDark"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:background="?attr/colorPrimaryDark"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="2dp"
+                android:src="@drawable/reminder"/>
+
+            <TextView
+                android:id="@+id/title"
+                android:text="Agregando nuevo recordatorio "
+                android:fontFamily="@font/muli"
+                android:textSize="20dp"
+                android:textColor="@color/TextWhite"
+                android:layout_gravity="center"
+                android:paddingLeft="7dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_frm__add__recordatorio" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        app:srcCompat="@drawable/ic_action_save"
+        app:backgroundTint="@color/colorPrimaryLight"
+        app:layout_anchor="@id/app_bar_layout_add_recordatorio"
+        app:layout_anchorGravity="bottom|right|end"
+        android:elevation="6dp"
+        app:pressedTranslationZ="10dp"
+        android:layout_marginRight="15dp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"/>
+
+</android.support.design.widget.CoordinatorLayout>

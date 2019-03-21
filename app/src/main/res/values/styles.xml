@@ -5,7 +5,10 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorSecondary</item>
+        <item name="android:fontFamily">@font/muli_semibold</item>
+        <item name="android:textColor">@color/TextGrayLight</item>
+        <item name="colorControlHighlight">@color/colorHighLight</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
