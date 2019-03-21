@@ -1,12 +1,21 @@
 package e.jazmi.pimo;
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TimePicker;
+import android.widget.Toast;
+
+import e.jazmi.pimo.Dialogs.Dialog_Add_Horario;
 
 
 /**
@@ -18,8 +27,8 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class Fragment_Schedule extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -58,13 +67,32 @@ public class Fragment_Schedule extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment__schedule, container, false);
+        View vista = inflater.inflate(R.layout.fragment_fragment__schedule, container, false);
+
+        /**ir a activity*/
+        FloatingActionButton fab= vista.findViewById(R.id.fab_horarios);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                open_Dialog_add_horario();
+            }
+        });
+
+        return vista;
+    }
+
+
+
+    private void open_Dialog_add_horario() {
+        Dialog_Add_Horario add_horario = new Dialog_Add_Horario();
+        add_horario.show(getFragmentManager(), "agregar_horario");
     }
 
     // TODO: Rename method, update argument and hook method into UI event

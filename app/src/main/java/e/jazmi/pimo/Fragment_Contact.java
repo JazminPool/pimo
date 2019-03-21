@@ -103,7 +103,7 @@ public class Fragment_Contact extends Fragment {
 
     public void open_Dialog_add() {
         Dialog_Add_Profesor add_profe = new Dialog_Add_Profesor();
-        add_profe.show(getFragmentManager(), "what");
+        add_profe.show(getFragmentManager(), "agregar_profe");
     }
 
     private void get_directorio() {

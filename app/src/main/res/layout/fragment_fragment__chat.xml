@@ -24,4 +24,10 @@
         app:lottie_fileName="animation-w400-h400.json"
         app:lottie_loop="true" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/btn_notification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Notificacion" />
+
+</LinearLayout>
