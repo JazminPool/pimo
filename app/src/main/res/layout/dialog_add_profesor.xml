@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -79,6 +80,60 @@
                 android:layout_height="wrap_content"/>
 
         </android.support.design.widget.TextInputLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/avatar1"
+                android:src="@drawable/avat"
+                android:focusable="true"
+                android:clickable="true"
+                app:civ_border_color="@color/backGray"
+                app:civ_border_width="2dp"
+                android:elevation="3dp"
+                android:layout_margin="3dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/avatar2"
+                android:src="@drawable/man"
+                android:focusable="true"
+                android:clickable="true"
+                app:civ_border_color="@color/backGray"
+                app:civ_border_width="2dp"
+                android:layout_margin="3dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/avatar3"
+                android:src="@drawable/beard"
+                android:focusable="true"
+                android:clickable="true"
+                app:civ_border_color="@color/backGray"
+                app:civ_border_width="2dp"
+                android:layout_margin="3dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"/>
+
+
+
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
