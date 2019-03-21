@@ -72,7 +72,7 @@ public class Fragment_Chat extends Fragment {
 
         // el perro
         ImageView image = (ImageView) view.findViewById(R.id.animacion);
-        image.setY(200);
+        image.setY(400);
         image.setX(250);
 
         Bundle bundle = this.getArguments();
