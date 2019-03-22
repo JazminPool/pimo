@@ -12,6 +12,7 @@ import android.support.v4.app.NotificationManagerCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 public class Fragment_Chat extends Fragment {
@@ -63,15 +64,6 @@ public class Fragment_Chat extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View vista = inflater.inflate(R.layout.fragment_fragment__chat, container, false);
-        btn_notificacion = vista.findViewById(R.id.btn_notification);
-        btn_notificacion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Send_Notificacion();
-            }
-        });
-
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_fragment__chat, container, false);
         View view = inflater.inflate(R.layout.fragment_fragment__chat,container,false);
@@ -79,8 +71,8 @@ public class Fragment_Chat extends Fragment {
 
         // el perro
         ImageView image = (ImageView) view.findViewById(R.id.animacion);
-        image.setY(400);
-        image.setX(250);
+        image.setY(500);
+        image.setX(350);
 
         Bundle bundle = this.getArguments();
         if(bundle !=null){
@@ -89,6 +81,9 @@ public class Fragment_Chat extends Fragment {
         }
         return  view;
     }
+
+
+
 
 
     // TODO: Rename method, update argument and hook method into UI event
