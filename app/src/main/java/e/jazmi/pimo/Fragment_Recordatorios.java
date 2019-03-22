@@ -123,7 +123,7 @@ public class Fragment_Recordatorios extends Fragment {
                                                             "Fecha: 02-03-2019",
                                                             "Entrevista de trabajo xd"));
 
-        list_recordatorios.add(new Atributos_Recordatorios("Avances con Mani",
+        list_recordatorios.add(new Atributos_Recordatorios("Avances con profesor Manuel",
                                                             "Hora: 07:00 am",
                                                             "Fecha: 02-02-2019",
                                                             "Entregar los modificados"));

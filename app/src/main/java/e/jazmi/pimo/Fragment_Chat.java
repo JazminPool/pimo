@@ -3,6 +3,7 @@ package e.jazmi.pimo;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,7 +18,6 @@ import android.widget.Button;
 public class Fragment_Chat extends Fragment {
 
     private Button btn_notificacion;
-    private PendingIntent pendingIntent;
     private final static String CHANNEL_ID = "NOTIFICACION";
     private final static int NOTIFICACION_ID = 0;
 
@@ -53,9 +53,6 @@ public class Fragment_Chat extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-
-
-
         }
     }
 
@@ -63,6 +60,7 @@ public class Fragment_Chat extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View vista = inflater.inflate(R.layout.fragment_fragment__chat, container, false);
+
         btn_notificacion = vista.findViewById(R.id.btn_notification);
         btn_notificacion.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,15 +74,23 @@ public class Fragment_Chat extends Fragment {
     }
 
     private void Send_Notificacion(){
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(getContext(), CHANNEL_ID);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity(), CHANNEL_ID);
         builder.setSmallIcon(R.drawable.ic_notification);
+        builder.setTicker("Humano, tienes una notificacion");
         builder.setContentTitle("Tienes un recordatorio");
+        builder.setWhen(System.currentTimeMillis());
         builder.setContentText("Hola humano, recuerda enviar tu tarea de Xiu antes de las 11:00 pm");
-        builder.setColor(Color.GRAY);
+        builder.setColor(Color.rgb(127,166,188));
         builder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
         builder.setLights(Color.MAGENTA, 1000,1000);
         builder.setVibrate(new long[]{1000,1000,1000,1000,1000});
+        builder.setAutoCancel(true);
         builder.setDefaults(Notification.DEFAULT_SOUND);
+
+        Intent intent = new Intent(getContext(), Fragment_Chat.class);
+
+        PendingIntent  pendingIntent = PendingIntent.getActivity(getActivity(), 0, intent, 0);
+        builder.setContentIntent(pendingIntent);
 
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(getContext());
         notificationManagerCompat.notify(NOTIFICACION_ID, builder.build());
