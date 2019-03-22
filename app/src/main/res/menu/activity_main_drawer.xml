@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
         <item
+            android:checked="true"
             android:id="@+id/nav_chat"
             android:icon="@drawable/ic_menu_chat"
             android:title="Habla con pimo" />
@@ -26,16 +28,19 @@
             android:title="Horario" />
     </group>
 
-    <item android:title="Sobre pimo">
+
+    <item android:title="Sobre πmo" >
         <menu>
             <item
                 android:id="@+id/nav_faqs"
+                android:checkable="true"
                 android:icon="@drawable/ic_menu_faqs"
                 android:title="Preguntas frecuentes" />
             <item
                 android:id="@+id/nav_info"
+                android:checkable="true"
                 android:icon="@drawable/ic_menu_info"
-                android:title="Informacion de la aplicacion" />
+                android:title="Acerca de π - Pimo" />
         </menu>
     </item>
 

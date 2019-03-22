@@ -1,8 +1,10 @@
 package e.jazmi.pimo;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,6 +18,7 @@ import java.util.ArrayList;
 import e.jazmi.pimo.Adapters.Adapter_directorio;
 import e.jazmi.pimo.Adapters.Adapter_recordatorios;
 import e.jazmi.pimo.Atributos.Atributos_Directorio;
+import e.jazmi.pimo.Dialogs.Dialog_Add_Profesor;
 
 
 /**
@@ -79,24 +82,54 @@ public class Fragment_Contact extends Fragment {
         View vista = inflater.inflate(R.layout.fragment_fragment__contact, container, false);
         list_directorios = new ArrayList<>();
         recycler_content_directorio = (RecyclerView) vista.findViewById(R.id.container_recycler_directorio_id);
-//        recycler_content_directorio.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL,false));
-        recycler_content_directorio.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        recycler_content_directorio.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false));
+//        recycler_content_directorio.setLayoutManager(new GridLayoutManager(getContext(), 2));
         get_directorio();
 
-        Adapter_directorio adapter_directorio = new Adapter_directorio(list_directorios);
+        Adapter_directorio adapter_directorio = new Adapter_directorio(list_directorios, getActivity());
         recycler_content_directorio.setAdapter(adapter_directorio);
 
+        /**ir a activity*/
+        FloatingActionButton fab= vista.findViewById(R.id.fab_add_profe);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                open_Dialog_add();
+            }
+        });
 
-
-        // Inflate the layout for this fragment
         return vista;
     }
 
+    public void open_Dialog_add() {
+        Dialog_Add_Profesor add_profe = new Dialog_Add_Profesor();
+        add_profe.show(getFragmentManager(), "what");
+    }
+
     private void get_directorio() {
-        list_directorios.add(new Atributos_Directorio("Ing. Software","Mani"));
-        list_directorios.add(new Atributos_Directorio("Ingles","Atisha"));
-        list_directorios.add(new Atributos_Directorio("Base de datos","Tony Stark"));
-        list_directorios.add(new Atributos_Directorio("Valores","La Diana"));
+        list_directorios.add(new Atributos_Directorio("Ing. Software",
+                                                      "Manuel Barrera Flores",
+                                                      "manuel_software@gmail.com",
+                                                      "9984521633"));
+        list_directorios.add(new Atributos_Directorio("Ingles VIII",
+                                                      "Adriana Gordillo",
+                                                      "adrina@gmail.com",
+                                                      "9984521633"));
+
+        list_directorios.add(new Atributos_Directorio("Base de datos",
+                                                      "Tony Stark",
+                                                      "tamay_caarlos@gmail.com",
+                                                      "9984521633"));
+
+        list_directorios.add(new Atributos_Directorio("Valores del Ser",
+                                                      "Diana Sanchez",
+                                                      "dianasancheeez@gmail.com",
+                                                      "9984521633"));
+
+        list_directorios.add(new Atributos_Directorio("Seguridad Informatica",
+                                                      "Salvador Herrera",
+                                                      "profechava@gmail.com",
+                                                      "9984521633"));
     }
 
     // TODO: Rename method, update argument and hook method into UI event

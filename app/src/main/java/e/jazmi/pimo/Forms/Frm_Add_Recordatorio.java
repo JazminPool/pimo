@@ -65,7 +65,7 @@ public class Frm_Add_Recordatorio extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Recordatorio guardado", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Wolf! π-mo ha guardado tu recordatorio.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });

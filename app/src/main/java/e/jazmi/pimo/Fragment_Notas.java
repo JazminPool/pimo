@@ -4,40 +4,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
-
-import javax.net.ssl.HttpsURLConnection;
 
 import e.jazmi.pimo.Adapters.Adapter_notas;
-import e.jazmi.pimo.Adapters.ExampleNotas;
 import e.jazmi.pimo.Atributos.Atributos_Nota;
 import e.jazmi.pimo.Forms.Frm_Add_Nota;
-import e.jazmi.pimo.Services.APIClient;
-import e.jazmi.pimo.Services.NotasService;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 
 /**
@@ -126,37 +105,29 @@ public class Fragment_Notas extends Fragment {
 
         return vista;
     }
+
     //aqui es donde se llena el recycler
     public void get_notas(){
+        list_notas.add(new Atributos_Nota("Why do we use it?",
+                                          "It is a long established fact that a reader " +
+                                                  "will be distracted by the readable content of " +
+                                                  "a page when looking at its layout. The point of " +
+                                                  "using Lorem Ipsum is that it has a more-or-less " +
+                                                  "normal distribution of letters, as opposed to " +
+                                                  "using 'Content here, content here', "));
+        list_notas.add(new Atributos_Nota("What is Lorem Ipsum?",
+                                          "Lorem Ipsum is simply dummy text of the printing and " +
+                                                  "typesetting industry. Lorem Ipsum has been the " +
+                                                  "industry's standard dummy text ever since the 1500s, " +
+                                                  "when an unknown printer took a galley of type and " +
+                                                  "scrambled it to make a type specimen book."));
+        list_notas.add(new Atributos_Nota("Where does it come from?",
+                                          "Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n" +
+                                                  "In tincidunt lectus at erat finibus ultrices.\n" +
+                                                  "Duis consectetur nunc nec accumsan sagittis."));
 
-        NotasService notaService = APIClient.getClient().create(NotasService.class);
-        Call call = notaService.findAll();
-
-        call.enqueue(new Callback() {
-            @Override
-            public void onResponse(Call call, Response response) {
-                list_notas.add (new Atributos_Nota());
-                recycler_content_notas.setAdapter(new Adapter_notas(list_notas));
-                String res = (String) response.body();
-                Log.d("esta aqui",res);
-                list_notas.add(new Atributos_Nota(response.body().titulo,"mi nota fragmet 1"));
-
-            }
-
-            @Override
-            public void onFailure(Call call, Throwable t) {
-                Toast.makeText(getContext(),"Fallido", Toast.LENGTH_SHORT).show();
-            }
-
-        });
-        /*list_notas.add(new Atributos_Nota("Nota 01","mi nota fragmet fragmet fragmet fragmet fragmet fragmet fragmet fragmet"));
-        list_notas.add(new Atributos_Nota("dasdad","mi nota fragmet 1"));
-        list_notas.add(new Atributos_Nota("dasda","mi nota fragmet 1"));
-        list_notas.add(new Atributos_Nota("26/02","mi nota fragmet 1"));
-        list_notas.add(new Atributos_Nota("lhdsiakbja","mi nota fragmet 1"));
-        list_notas.add(new Atributos_Nota("what","mi nota fragmet 1"));
-        list_notas.add(new Atributos_Nota("pruebaxd","mi nota fragmet 1"));*/
     }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
