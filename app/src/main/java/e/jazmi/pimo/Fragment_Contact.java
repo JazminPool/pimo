@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,13 @@ import e.jazmi.pimo.Adapters.Adapter_directorio;
 import e.jazmi.pimo.Adapters.Adapter_recordatorios;
 import e.jazmi.pimo.Atributos.Atributos_Directorio;
 import e.jazmi.pimo.Dialogs.Dialog_Add_Profesor;
+import e.jazmi.pimo.Response.DirectorioResponse;
+import e.jazmi.pimo.Services.DirectorioInterface;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 /**
@@ -43,6 +51,11 @@ public class Fragment_Contact extends Fragment {
 
     ArrayList<Atributos_Directorio> list_directorios;
     RecyclerView recycler_content_directorio;
+
+    private static final String TAG = "DIRLIST";
+
+    private Adapter_directorio adapter;
+    private Retrofit retrofit;
 
 
     public Fragment_Contact() {
@@ -80,15 +93,20 @@ public class Fragment_Contact extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View vista = inflater.inflate(R.layout.fragment_fragment__contact, container, false);
-        list_directorios = new ArrayList<>();
         recycler_content_directorio = (RecyclerView) vista.findViewById(R.id.container_recycler_directorio_id);
-        recycler_content_directorio.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false));
-//        recycler_content_directorio.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        adapter = new Adapter_directorio();
+        recycler_content_directorio.setAdapter(adapter);
+
+        recycler_content_directorio.setHasFixedSize(true);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        recycler_content_directorio.setLayoutManager(layoutManager);
+
+        retrofit = new Retrofit.Builder()
+                .baseUrl("http://192.168.137.204:2500/api/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
         get_directorio();
-
-        Adapter_directorio adapter_directorio = new Adapter_directorio(list_directorios, getActivity());
-        recycler_content_directorio.setAdapter(adapter_directorio);
-
         /**ir a activity*/
         FloatingActionButton fab= vista.findViewById(R.id.fab_add_profe);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -107,29 +125,32 @@ public class Fragment_Contact extends Fragment {
     }
 
     private void get_directorio() {
-        list_directorios.add(new Atributos_Directorio("Ing. Software",
-                                                      "Manuel Barrera Flores",
-                                                      "manuel_software@gmail.com",
-                                                      "9984521633"));
-        list_directorios.add(new Atributos_Directorio("Ingles VIII",
-                                                      "Adriana Gordillo",
-                                                      "adrina@gmail.com",
-                                                      "9984521633"));
+        DirectorioInterface service  = retrofit.create(DirectorioInterface.class);
+        Call<DirectorioResponse> directorioResponseCall = service.getAll();
+        directorioResponseCall.enqueue(new Callback<DirectorioResponse>() {
+            @Override
+            public void onResponse(Call<DirectorioResponse> call, Response<DirectorioResponse> response) {
+                if (response.isSuccessful())
+                {
+                    DirectorioResponse directorioResponse = response.body();
+                    ArrayList<Atributos_Directorio> directorios = directorioResponse.getList();
 
-        list_directorios.add(new Atributos_Directorio("Base de datos",
-                                                      "Tony Stark",
-                                                      "tamay_caarlos@gmail.com",
-                                                      "9984521633"));
+                    adapter.addDirectorio(directorios);
+                    for (int i = 0; i < directorios.size(); i++) {
+                        Atributos_Directorio n = directorios.get(i);
+                        Log.i(TAG, "Profesor: " + n.getNombre());
+                    }
+                }else
+                {
+                    Log.e(TAG,"Onresponse: "+response.errorBody());
+                }
+            }
 
-        list_directorios.add(new Atributos_Directorio("Valores del Ser",
-                                                      "Diana Sanchez",
-                                                      "dianasancheeez@gmail.com",
-                                                      "9984521633"));
-
-        list_directorios.add(new Atributos_Directorio("Seguridad Informatica",
-                                                      "Salvador Herrera",
-                                                      "profechava@gmail.com",
-                                                      "9984521633"));
+            @Override
+            public void onFailure(Call<DirectorioResponse> call, Throwable t) {
+            Log.e(TAG,"Onfail: "+t.getMessage());
+            }
+        });
     }
 
     // TODO: Rename method, update argument and hook method into UI event

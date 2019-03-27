@@ -10,6 +10,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.util.MonthDisplayHelper;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,17 +18,33 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.ResourceBundle;
 
+import e.jazmi.pimo.Atributos.Atributos_Recordatorios;
 import e.jazmi.pimo.Dialogs.Dialog_Time;
 import e.jazmi.pimo.R;
+import e.jazmi.pimo.Services.RecordatoriosInterface;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Frm_Add_Recordatorio extends AppCompatActivity {
 
-    EditText txf_date, txf_time;
+    Retrofit retrofit;
+    private RecordatoriosInterface recordatoriosInterface;
+
+    EditText txf_date, txf_time,txf_titulo,txf_descripcion;
+    TextView tvcreacion;
     int year_x, month_x, day_x, hour_x, minute_x;
 
     static final int DIALOG_ID = 0, DIALOG_TIME=1;
@@ -56,20 +73,63 @@ public class Frm_Add_Recordatorio extends AppCompatActivity {
         month_x = date.get(Calendar.MONTH);
         day_x = date.get(Calendar.DAY_OF_MONTH);
         show_Calendar();
-
         show_Time();
 
+        retrofit = new Retrofit.Builder()
+                .baseUrl("http://192.168.1.4:2500/api/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        recordatoriosInterface = retrofit.create(RecordatoriosInterface.class);
 
         /**Boton guardar*/
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                recordatoriosInterface = retrofit.create(RecordatoriosInterface.class);
+                createRecordatorio();
                 Snackbar.make(view, "Wolf! π-mo ha guardado tu recordatorio.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
     }
+
+    /*crear recordatorio*/
+    public void createRecordatorio()
+    {
+        txf_titulo = (EditText) findViewById(R.id.txf_title_add_recordatorio_id);
+        txf_date = (EditText) findViewById(R.id.txf_date_add_recordatorio_id);
+        txf_time = (EditText) findViewById(R.id.txf_time_add_recordatorio_id);
+        txf_descripcion = (EditText) findViewById(R.id.txf_coment_add_recordatorio_id);
+        //tvcreacion = (TextView)findViewById(R.id.txf_fecha_fue_creado_recordatorio);
+
+        DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+        Date date = new Date();
+
+        String titulo, descripcion, fecha, hora;
+        titulo = String.valueOf(txf_titulo.getText());
+        descripcion = String.valueOf(txf_descripcion.getText());
+        fecha = String.valueOf(txf_date.getText());
+        hora = String.valueOf(txf_time.getText());
+
+        Atributos_Recordatorios create = new Atributos_Recordatorios(titulo,dateFormat.format(date),hora,fecha,descripcion);
+        Call<Atributos_Recordatorios> recordatoriosInterfaceCall = recordatoriosInterface.createdRecordatorio(create);
+        recordatoriosInterfaceCall.enqueue(new Callback<Atributos_Recordatorios>() {
+            @Override
+            public void onResponse(Call<Atributos_Recordatorios> call, Response<Atributos_Recordatorios> response) {
+                if(!response.isSuccessful())
+                {
+                    Log.i("SUCCERS", String.valueOf(response.body()));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Atributos_Recordatorios> call, Throwable t) {
+                Log.i("FAIL",t.getMessage());
+            }
+        });
+    }
+    /*crear recordatorio*/
 
     /*******************
      * Dialog datepicker

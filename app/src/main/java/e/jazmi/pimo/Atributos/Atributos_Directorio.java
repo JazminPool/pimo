@@ -1,48 +1,76 @@
 package e.jazmi.pimo.Atributos;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Atributos_Directorio {
-    private String nombre_profesor, materia_profesor, correo_profesor, telefono_profesor;
 
-    public Atributos_Directorio(){}
+    @SerializedName("nombre")
+    private String nombre;
+    @SerializedName("carrera")
+    private String carrera;
+    @SerializedName("materia")
+    private String materia;
+    @SerializedName("turno")
+    private String turno;
+    @SerializedName("correo")
+    private String correo;
+    @SerializedName("celular")
+    private String celular;
 
-    public Atributos_Directorio(String materia_profesor, String nombre_profesor, String correo_profesor, String telefono_profesor){
-        this.nombre_profesor   = nombre_profesor;
-        this.materia_profesor  = materia_profesor;
-        this.correo_profesor   = correo_profesor;
-        this.telefono_profesor = telefono_profesor;
+    public Atributos_Directorio(String nombre, String carrera, String materia, String turno, String correo, String celular) {
+        this.nombre = nombre;
+        this.carrera = carrera;
+        this.materia = materia;
+        this.turno = turno;
+        this.correo = correo;
+        this.celular = celular;
     }
 
-
-
-    public String getNombre_profesor() {
-        return nombre_profesor;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNombre_profesor(String nombre_profesor) {
-        this.nombre_profesor = nombre_profesor;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getMateria_profesor() {
-        return materia_profesor;
+    public String getCarrera() {
+        return carrera;
     }
 
-    public void setMateria_profesor(String materia_profesor) {
-        this.materia_profesor = materia_profesor;
+    public void setCarrera(String carrera) {
+        this.carrera = carrera;
     }
 
-    public String getCorreo_profesor() {
-        return correo_profesor;
+    public String getMateria() {
+        return materia;
     }
 
-    public void setCorreo_profesor(String correo_profesor) {
-        this.correo_profesor = correo_profesor;
+    public void setMateria(String materia) {
+        this.materia = materia;
     }
 
-    public String getTelefono_profesor() {
-        return telefono_profesor;
+    public String getTurno() {
+        return turno;
     }
 
-    public void setTelefono_profesor(String telefono_profesor) {
-        this.telefono_profesor = telefono_profesor;
+    public void setTurno(String turno) {
+        this.turno = turno;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getCelular() {
+        return celular;
+    }
+
+    public void setCelular(String celular) {
+        this.celular = celular;
     }
 }

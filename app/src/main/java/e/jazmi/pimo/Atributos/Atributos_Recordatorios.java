@@ -1,46 +1,55 @@
 package e.jazmi.pimo.Atributos;
 
 public class Atributos_Recordatorios {
-    private String titulo_recordatorio, hora_recordatorio, fecha_recordatorio, comentario_recordatorio;
+    private String nombre, creacion, hora, descripcion,fecha;
 
     public Atributos_Recordatorios(){}
 
-    public Atributos_Recordatorios(String titulo_recordatorio, String hora_recordatorio, String fecha_recordatorio, String comentario_recordatorio){
-        this.titulo_recordatorio     = titulo_recordatorio;
-        this.hora_recordatorio       = hora_recordatorio;
-        this.fecha_recordatorio      = fecha_recordatorio;
-        this.comentario_recordatorio = comentario_recordatorio;
+    public Atributos_Recordatorios(String nombre, String creacion, String hora, String fecha,String descripcion){
+        this.nombre     = nombre;
+        this.creacion       = creacion;
+        this.fecha = fecha;
+        this.hora      = hora;
+        this.descripcion = descripcion;
     }
 
-    public String getTitulo_recordatorio() {
-        return titulo_recordatorio;
+    public String getFecha() {
+        return fecha;
     }
 
-    public void setTitulo_recordatorio(String titulo_recordatorio) {
-        this.titulo_recordatorio = titulo_recordatorio;
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 
-    public String getHora_recordatorio() {
-        return hora_recordatorio;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setHora_recordatorio(String hora_recordatorio) {
-        this.hora_recordatorio = hora_recordatorio;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getFecha_recordatorio() {
-        return fecha_recordatorio;
+    public String getCreacion() {
+        return creacion;
     }
 
-    public void setFecha_recordatorio(String fecha_recordatorio) {
-        this.fecha_recordatorio = fecha_recordatorio;
+    public void setCreacion(String creacion) {
+        this.creacion = creacion;
     }
 
-    public String getComentario_recordatorio() {
-        return comentario_recordatorio;
+    public String getHora() {
+        return hora;
     }
 
-    public void setComentario_recordatorio(String comentario_recordatorio) {
-        this.comentario_recordatorio = comentario_recordatorio;
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }

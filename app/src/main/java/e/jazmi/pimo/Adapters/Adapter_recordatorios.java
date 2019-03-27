@@ -7,21 +7,24 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import e.jazmi.pimo.Atributos.Atributos_Nota;
 import e.jazmi.pimo.Atributos.Atributos_Recordatorios;
 import e.jazmi.pimo.R;
 
 public class Adapter_recordatorios extends RecyclerView.Adapter<Adapter_recordatorios.ViewHolder_Recordatorios> {
-    //hago instancia a la lista que viene de la clase Atributos_Nota
-    ArrayList<Atributos_Recordatorios> list_recordatorios;
 
-    public Adapter_recordatorios(ArrayList<Atributos_Recordatorios> list_recordatorios){
-        this.list_recordatorios = list_recordatorios;
+    //hago instancia a la lista que viene de la clase Atributos_Nota
+    private ArrayList<Atributos_Recordatorios> list_recordatorios;
+
+    public Adapter_recordatorios(){
+        list_recordatorios = new ArrayList<>();
     }
 
 
     @Override
     public ViewHolder_Recordatorios onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recordatorios_content, null, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recordatorios_content, parent, false);
         return new ViewHolder_Recordatorios(view);
     }
 
@@ -29,24 +32,37 @@ public class Adapter_recordatorios extends RecyclerView.Adapter<Adapter_recordat
     //Asigna el contenido de la nota al textView
     @Override
     public void onBindViewHolder(ViewHolder_Recordatorios holder, int position) {
-        holder.title_recordatorio.setText(list_recordatorios.get(position).getTitulo_recordatorio());
-        holder.hora_recordatorio.setText(list_recordatorios.get(position).getHora_recordatorio());
-        holder.fecha_recordatorio.setText(list_recordatorios.get(position).getFecha_recordatorio());
-        holder.comentario_recordatorio.setText(list_recordatorios.get(position).getComentario_recordatorio());
+        Atributos_Recordatorios atD = list_recordatorios.get(position);
+
+        holder.tvnombre.setText(atD.getNombre());
+        holder.tvcreacion.setText(atD.getCreacion());
+        holder.tvfecha.setText(atD.getFecha());
+        holder.tvhora.setText(atD.getHora());
+        holder.tvdescripcion.setText(atD.getDescripcion());
     }
 
     //devuelve el numero de elementos en la lista
     @Override
-    public int getItemCount() { return list_recordatorios.size(); }
+    public int getItemCount() {if (list_recordatorios!= null)
+        return list_recordatorios.size();
+        return 0;
+    }
+
+    public void addRecordatorios(ArrayList<Atributos_Recordatorios> recordatorios)
+    {
+        list_recordatorios.addAll(recordatorios);
+        notifyDataSetChanged();
+    }
 
     public class ViewHolder_Recordatorios extends RecyclerView.ViewHolder {
-        TextView title_recordatorio, hora_recordatorio, fecha_recordatorio, comentario_recordatorio;
+        TextView tvnombre, tvcreacion, tvhora, tvdescripcion,tvfecha;
         public ViewHolder_Recordatorios(View itemView) {
             super(itemView);
-            title_recordatorio = itemView.findViewById(R.id.txf_title_recordatorio_item_id);
-            hora_recordatorio = itemView.findViewById(R.id.txf_hora_recordatorio_item_id);
-            fecha_recordatorio = itemView.findViewById(R.id.txf_fecha_recordatorio_item_id);
-            comentario_recordatorio = itemView.findViewById(R.id.txf_comentario_recordatorio_item_id);
+            tvnombre = itemView.findViewById(R.id.txf_title_recordatorio_item_id);
+            tvcreacion = itemView.findViewById(R.id.txf_fecha_fue_creado_recordatorio);
+            tvhora = itemView.findViewById(R.id.txf_hora_recordatorio_item_id);
+            tvfecha =  itemView.findViewById(R.id.txf_fecha_recordatorio_item_id);
+            tvdescripcion = itemView.findViewById(R.id.txf_comentario_recordatorio_item_id);
         }
     }
 }

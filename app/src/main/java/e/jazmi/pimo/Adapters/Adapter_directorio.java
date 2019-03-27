@@ -22,25 +22,22 @@ public class Adapter_directorio extends RecyclerView.Adapter<Adapter_directorio.
     ArrayList<Atributos_Directorio> list_directorio;
     private Context contexto_directorio;
 
-    public Adapter_directorio(ArrayList<Atributos_Directorio> list_directorio, Context contexto_directorio){
-        this.list_directorio = list_directorio;
-        this.contexto_directorio = contexto_directorio;
-    }
+    public Adapter_directorio(){list_directorio = new ArrayList<>();}
 
 
     @Override
     public ViewHolder_Directorio onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_directorio_content, parent, false);
-//        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_directorio_content, null, false);
         return new ViewHolder_Directorio(view);
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder_Directorio holder, final int position) {
-        holder.nombre_profesor.setText(list_directorio.get(position).getNombre_profesor());
-        holder.materia_profesor.setText(list_directorio.get(position).getMateria_profesor());
-        holder.correo_profesor.setText(list_directorio.get(position).getCorreo_profesor());
-        holder.telefono_profesorr.setText(list_directorio.get(position).getTelefono_profesor());
+        Atributos_Directorio atR = list_directorio.get(position);
+        holder.nombre_profesor.setText(atR.getNombre());
+        holder.materia_profesor.setText(atR.getMateria());
+        holder.correo_profesor.setText(atR.getCorreo());
+        holder.telefono_profesorr.setText(atR.getCelular());
 
         holder.option_menu_directorioo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,12 +67,17 @@ public class Adapter_directorio extends RecyclerView.Adapter<Adapter_directorio.
 
 
     }
-
     @Override
     public int getItemCount() {
-        return list_directorio.size();
+        if (list_directorio!= null)
+            return list_directorio.size();
+        return 0;
     }
 
+    public void addDirectorio(ArrayList<Atributos_Directorio> directorios) {
+    list_directorio.addAll(directorios);
+    notifyDataSetChanged();
+    }
 
     public class ViewHolder_Directorio extends RecyclerView.ViewHolder {
         TextView nombre_profesor, materia_profesor, correo_profesor, telefono_profesorr, option_menu_directorioo;
