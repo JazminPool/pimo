@@ -4,18 +4,34 @@ import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.database.DataSetObserver;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
+
+import e.jazmi.pimo.Adapters.ChatArrayAdapter;
+import e.jazmi.pimo.Atributos.ChatMessage;
 
 public class Fragment_Chat extends Fragment {
+
+    private static final String TAG = "ChatActivity";
+
+    private ChatArrayAdapter chatArrayAdapter;
+    private ListView listView;
+    private EditText chatText;
+    private Button buttonSendM;
+    private boolean side = false;
 
     private Button btn_notificacion;
     private final static String CHANNEL_ID = "NOTIFICACION";
@@ -61,17 +77,63 @@ public class Fragment_Chat extends Fragment {
                              Bundle savedInstanceState) {
         View vista = inflater.inflate(R.layout.fragment_fragment__chat, container, false);
 
-        btn_notificacion = vista.findViewById(R.id.btn_notification);
-        btn_notificacion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Send_Notificacion();
+//        setContentView(R.layout.activity_main);
+//        vista.(R.layout.fragment_fragment__chat);
+
+        buttonSendM = (Button) vista.findViewById(R.id.btn_send_msg);
+
+        listView = (ListView) vista.findViewById(R.id.msgview);
+
+        chatArrayAdapter = new ChatArrayAdapter(getContext(), R.layout.pimo_msg);
+        listView.setAdapter(chatArrayAdapter);
+
+        chatText = (EditText) vista.findViewById(R.id.mgs_text);
+        chatText.setOnKeyListener(new View.OnKeyListener() {
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    return sendChatMessage();
+                }
+                return false;
             }
         });
+        buttonSendM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                sendChatMessage();
+            }
+        });
+
+        listView.setTranscriptMode(AbsListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
+        listView.setAdapter(chatArrayAdapter);
+
+        //to scroll the list view to bottom on data change
+        chatArrayAdapter.registerDataSetObserver(new DataSetObserver() {
+            @Override
+            public void onChanged() {
+                super.onChanged();
+                listView.setSelection(chatArrayAdapter.getCount() - 1);
+            }
+        });
+
+//        btn_notificacion = vista.findViewById(R.id.btn_notification);
+//        btn_notificacion.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+////                Send_Notificacion();
+//            }
+//        });
 
         // Inflate the layout for this fragment
         return vista;
     }
+
+    private boolean sendChatMessage() {
+        chatArrayAdapter.add(new ChatMessage(side, chatText.getText().toString()));
+        chatText.setText("");
+        side = !side;
+        return true;
+    }
+
 
     private void Send_Notificacion(){
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity(), CHANNEL_ID);

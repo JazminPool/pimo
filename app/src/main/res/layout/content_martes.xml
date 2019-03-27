@@ -24,7 +24,7 @@
 
                 <TextView
                     android:id="@+id/txf_profesor_lunes_id"
-                    android:text="Profesor del lunes"
+                    android:text="Profesor del martes"
                     android:textSize="15sp"
                     android:layout_gravity="center_vertical"
                     android:layout_width="wrap_content"
