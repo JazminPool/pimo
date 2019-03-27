@@ -30,7 +30,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements  NavigationView.OnNavigationItemSelectedListener, Fragment_Chat.OnFragmentInteractionListener,
                                                         Fragment_Recordatorios.OnFragmentInteractionListener, Fragment_Notas.OnFragmentInteractionListener,
                                                         Fragment_Contact.OnFragmentInteractionListener, Fragment_Schedule.OnFragmentInteractionListener,
-                                                        Fragment_Faqs_Menu.OnFragmentInteractionListener, Fragment_Info.OnFragmentInteractionListener {
+                                                        Fragment_Faqs_Menu.OnFragmentInteractionListener, Fragment_Info.OnFragmentInteractionListener, Fragment_Score.OnFragmentInteractionListener{
 
 
     @Override
@@ -141,7 +141,11 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         } else if (id == R.id.nav_faqs) {
             miFragment = new Fragment_Faqs_Menu();
             fragment_seleccionado=true;
-        } else if(id == R.id.nav_info){
+        } else if (id == R.id.nav_rank) {
+            miFragment = new Fragment_Score();
+            fragment_seleccionado=true;
+        }
+        else if(id == R.id.nav_info){
             miFragment = new Fragment_Info();
             fragment_seleccionado=true;
         }

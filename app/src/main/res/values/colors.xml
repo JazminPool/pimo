@@ -11,8 +11,8 @@
     <!--<color name="colorPrimaryDark">#50778c</color>-->
     <!--<color name="colorPrimaryLight">#b0d7ee</color>-->
 
-    <!--<color name="colorPrimary">#ed8e2f</color>-->
-    <color name="colorPrimary">#F6F7F8</color>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorsPrimary">#F6F7F8</color>
     <color name="colorPrimaryDark">#d6d6d6</color>
     <color name="colorPrimaryLight">#2c3e50</color>
 
@@ -28,7 +28,8 @@
 
 
     <!--Highlight-->
-    <color name="colorHighLight">#bdc5cccf</color>
+    <!--<color name="colorHighLight">#bdc5cccf</color>-->
+    <color name="colorHighLight">#C9BFA0</color>
     <color name="backGray">#F5F5F6</color>
 
     <!--Textos-->
@@ -36,9 +37,13 @@
     <color name="TextGrayDark">#37474f</color>
     <color name="TextGrayLight">#90a4ae</color>
     <color name="TextBlueGray">#455a64</color>
-    <color name="TextWhite">#fafafa</color>
+    <color name="TextWhite">#fafafa</color>ch
 
 
+    <color name="color_pimo_dark">#bb3f27</color>
+    <color name="color_pimo_dark_light">#ec5536</color>
+    <color name="color_pimo">#fd7251</color>
+    <color name="color_pimo_bg">#fff4bf</color>
 
     <!--<color name="colorAccent">#157b87</color>-->
 

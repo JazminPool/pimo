@@ -5,24 +5,25 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
-import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.Button;
+import android.widget.RatingBar;
 import android.widget.Toast;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link Fragment_Info.OnFragmentInteractionListener} interface
+ * {@link Fragment_Score.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link Fragment_Info#newInstance} factory method to
+ * Use the {@link Fragment_Score#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Fragment_Info extends Fragment {
-    ImageView bae, ofe, anbl, jp;
+public class Fragment_Score extends Fragment {
+
+    RatingBar score;
+    Button btnSend;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,7 +36,7 @@ public class Fragment_Info extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public Fragment_Info() {
+    public Fragment_Score() {
         // Required empty public constructor
     }
 
@@ -45,11 +46,11 @@ public class Fragment_Info extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Fragment_Info.
+     * @return A new instance of fragment Fragment_Score.
      */
     // TODO: Rename and change types and number of parameters
-    public static Fragment_Info newInstance(String param1, String param2) {
-        Fragment_Info fragment = new Fragment_Info();
+    public static Fragment_Score newInstance(String param1, String param2) {
+        Fragment_Score fragment = new Fragment_Score();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -70,34 +71,29 @@ public class Fragment_Info extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View vista = inflater.inflate(R.layout.fragment_fragment__info, container, false);
+        View vista = inflater.inflate(R.layout.fragment_fragment__score, container, false);
 
-        bae = (ImageView) vista.findViewById(R.id.bae);
-        anbl = (ImageView) vista.findViewById(R.id.anbl);
-        ofe = (ImageView) vista.findViewById(R.id.ofe);
-        jp = (ImageView) vista.findViewById(R.id.jp);
+        score = (RatingBar) vista.findViewById(R.id.score);
+        btnSend = (Button) vista.findViewById(R.id.btnSend);
 
-        info_toast(bae, "Gloria Aguilar");
-        info_toast(ofe, "Ofelia López");
-        info_toast(anbl, "Annei Arriola");
-        info_toast(jp, "Jazmín Pool");
+        score.setNumStars(5);
+        score.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
+                Toast.makeText(getContext(), "Puntos: " + v, Toast.LENGTH_LONG).show();
+            }
+        });
 
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "Gracias por tu apoyo! " + score.getRating(), Toast.LENGTH_LONG).show();
+            }
+        });
 
 
         return vista;
     }
-
-    public void info_toast(ImageView mona, final String name){
-        final String nombre = name;
-        mona.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getContext(), ""+nombre, Toast.LENGTH_LONG).show();
-            }
-        });
-    }
-
-
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

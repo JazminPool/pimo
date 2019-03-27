@@ -37,15 +37,15 @@
                 android:icon="@drawable/ic_menu_faqs"
                 android:title="Preguntas frecuentes" />
             <item
+                android:id="@+id/nav_rank"
+                android:checkable="true"
+                android:icon="@drawable/ic_menu_rank"
+                android:title="¡Calificanos!" />
+            <item
                 android:id="@+id/nav_info"
                 android:checkable="true"
                 android:icon="@drawable/ic_menu_info"
                 android:title="Acerca de π - Pimo" />
-            <item
-                android:id="@+id/nav_rank"
-                android:checkable="true"
-                android:icon="@drawable/ic_menu_info"
-                android:title="¡Calificanos!" />
         </menu>
     </item>
 

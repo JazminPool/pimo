@@ -4,20 +4,31 @@ import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.database.DataSetObserver;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
 public class Fragment_Chat extends Fragment {
+
+    private static final String TAG = "ChatActivity";
+
+    private ChatArrayAdapter chatArrayAdapter;
+    private ListView listView;
+    private EditText chatText;
+    private Button buttonSendM;
+    private boolean side = false;
 
     private Button btn_notificacion;
     private final static String CHANNEL_ID = "NOTIFICACION";
