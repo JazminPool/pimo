@@ -82,7 +82,7 @@ public class Fragment_Chat extends Fragment {
 
 
         // el perro
-        ImageView image = (ImageView) view.findViewById(R.id.animacion);
+       ImageView image = (ImageView) view.findViewById(R.id.animacion);
         image.setY(480);
         image.setX(-190);//mover de posicion
         //el pinche button
