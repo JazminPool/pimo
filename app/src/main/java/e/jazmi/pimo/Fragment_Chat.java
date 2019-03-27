@@ -19,6 +19,9 @@ import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
+
+import e.jazmi.pimo.Adapters.ChatArrayAdapter;
 
 public class Fragment_Chat extends Fragment {
 
