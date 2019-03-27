@@ -8,6 +8,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,13 @@ import java.util.ArrayList;
 import e.jazmi.pimo.Adapters.Adapter_notas;
 import e.jazmi.pimo.Atributos.Atributos_Nota;
 import e.jazmi.pimo.Forms.Frm_Add_Nota;
+import e.jazmi.pimo.Response.NotasResponse;
+import e.jazmi.pimo.Services.NotasService;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 /**
@@ -40,8 +48,11 @@ public class Fragment_Notas extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    ArrayList<Atributos_Nota> list_notas;
-    RecyclerView recycler_content_notas;
+    private static final String TAG = "NOTASLIST";
+
+    private RecyclerView recycler_content_notas;
+    private Adapter_notas adapter;
+    private Retrofit retrofit;
 
     public Fragment_Notas() {
         // Required empty public constructor
@@ -79,18 +90,29 @@ public class Fragment_Notas extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-
         View vista = inflater.inflate(R.layout.fragment_fragment__notas, container, false);
-        list_notas = new ArrayList<>();
         recycler_content_notas = (RecyclerView) vista.findViewById(R.id.container_recycler_notas_id);
+        adapter = new Adapter_notas();
+        recycler_content_notas.setAdapter(adapter);
 
+        recycler_content_notas.setHasFixedSize(true);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        recycler_content_notas.setLayoutManager(layoutManager);
+
+        retrofit = new Retrofit.Builder()
+                .baseUrl("http://192.168.103.42:2500/api/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        obtenerNotas();
+
+        /*recycler_content_notas.setHasFixedSize(true);
         recycler_content_notas.setLayoutManager(new LinearLayoutManager(getContext()));
 
         get_notas();
 
         //invoca el adaptador y le asigna la lista al recycler
         Adapter_notas adapter_notass = new Adapter_notas(list_notas);
-        recycler_content_notas.setAdapter(adapter_notass);
+        recycler_content_notas.setAdapter(adapter_notass);*/
 
 
         FloatingActionButton fab= vista.findViewById(R.id.fab);
@@ -106,9 +128,37 @@ public class Fragment_Notas extends Fragment {
         return vista;
     }
 
+    private void obtenerNotas() {
+        NotasService service = retrofit.create(NotasService.class);
+        Call<NotasResponse> notasResponseCall = service.findAll();
+        notasResponseCall.enqueue(new Callback<NotasResponse>() {
+            @Override
+            public void onResponse(Call<NotasResponse> call, Response<NotasResponse> response) {
+                if(response.isSuccessful()) {
+                    NotasResponse notasResponse = response.body();
+                    ArrayList<Atributos_Nota> notas = notasResponse.getList();
+
+                    adapter.addNotas(notas);
+                    for (int i = 0; i < notas.size(); i++) {
+                        Atributos_Nota n = notas.get(i);
+                        Log.i(TAG, "Nota: " + n.getTitulo());
+                    }
+                }else {
+                    Log.e(TAG,"OnResponse: "+response.errorBody());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<NotasResponse> call, Throwable t) {
+                Log.e(TAG,"OnFail: "+t.getMessage());
+            }
+        });
+    }
+
     //aqui es donde se llena el recycler
     public void get_notas(){
-        list_notas.add(new Atributos_Nota("Why do we use it?",
+
+        /*list_notas.add(new Atributos_Nota("Why do we use it?",
                                           "It is a long established fact that a reader " +
                                                   "will be distracted by the readable content of " +
                                                   "a page when looking at its layout. The point of " +
@@ -124,7 +174,7 @@ public class Fragment_Notas extends Fragment {
         list_notas.add(new Atributos_Nota("Where does it come from?",
                                           "Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n" +
                                                   "In tincidunt lectus at erat finibus ultrices.\n" +
-                                                  "Duis consectetur nunc nec accumsan sagittis."));
+                                                  "Duis consectetur nunc nec accumsan sagittis."));*/
 
     }
 

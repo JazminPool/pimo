@@ -6,10 +6,14 @@
     <option name="myNullables">
       <value>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <list size="7">
 =======
         <list size="10">
 >>>>>>> b9e05ad08030c99b27492da5771ec325ef6e8aca
+=======
+        <list size="10">
+>>>>>>> 0c23287aeef87f1c47e279d8257e6469f23b9adc
           <item index="0" class="java.lang.String" itemvalue="org.jetbrains.annotations.Nullable" />
           <item index="1" class="java.lang.String" itemvalue="javax.annotation.Nullable" />
           <item index="2" class="java.lang.String" itemvalue="javax.annotation.CheckForNull" />
@@ -18,21 +22,31 @@
           <item index="5" class="java.lang.String" itemvalue="androidx.annotation.Nullable" />
           <item index="6" class="java.lang.String" itemvalue="androidx.annotation.RecentlyNullable" />
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
           <item index="7" class="java.lang.String" itemvalue="org.checkerframework.checker.nullness.qual.Nullable" />
           <item index="8" class="java.lang.String" itemvalue="org.checkerframework.checker.nullness.compatqual.NullableDecl" />
           <item index="9" class="java.lang.String" itemvalue="org.checkerframework.checker.nullness.compatqual.NullableType" />
 >>>>>>> b9e05ad08030c99b27492da5771ec325ef6e8aca
+=======
+          <item index="7" class="java.lang.String" itemvalue="org.checkerframework.checker.nullness.qual.Nullable" />
+          <item index="8" class="java.lang.String" itemvalue="org.checkerframework.checker.nullness.compatqual.NullableDecl" />
+          <item index="9" class="java.lang.String" itemvalue="org.checkerframework.checker.nullness.compatqual.NullableType" />
+>>>>>>> 0c23287aeef87f1c47e279d8257e6469f23b9adc
         </list>
       </value>
     </option>
     <option name="myNotNulls">
       <value>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <list size="6">
 =======
         <list size="9">
 >>>>>>> b9e05ad08030c99b27492da5771ec325ef6e8aca
+=======
+        <list size="9">
+>>>>>>> 0c23287aeef87f1c47e279d8257e6469f23b9adc
           <item index="0" class="java.lang.String" itemvalue="org.jetbrains.annotations.NotNull" />
           <item index="1" class="java.lang.String" itemvalue="javax.annotation.Nonnull" />
           <item index="2" class="java.lang.String" itemvalue="edu.umd.cs.findbugs.annotations.NonNull" />
@@ -40,11 +54,17 @@
           <item index="4" class="java.lang.String" itemvalue="androidx.annotation.NonNull" />
           <item index="5" class="java.lang.String" itemvalue="androidx.annotation.RecentlyNonNull" />
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
           <item index="6" class="java.lang.String" itemvalue="org.checkerframework.checker.nullness.qual.NonNull" />
           <item index="7" class="java.lang.String" itemvalue="org.checkerframework.checker.nullness.compatqual.NonNullDecl" />
           <item index="8" class="java.lang.String" itemvalue="org.checkerframework.checker.nullness.compatqual.NonNullType" />
 >>>>>>> b9e05ad08030c99b27492da5771ec325ef6e8aca
+=======
+          <item index="6" class="java.lang.String" itemvalue="org.checkerframework.checker.nullness.qual.NonNull" />
+          <item index="7" class="java.lang.String" itemvalue="org.checkerframework.checker.nullness.compatqual.NonNullDecl" />
+          <item index="8" class="java.lang.String" itemvalue="org.checkerframework.checker.nullness.compatqual.NonNullType" />
+>>>>>>> 0c23287aeef87f1c47e279d8257e6469f23b9adc
         </list>
       </value>
     </option>
