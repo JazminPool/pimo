@@ -1,13 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--
+    quicksand
+    cheetah
+    HK Grotesk Hanken
+    fin
+    -->
     <!--Primario-->
-    <color name="colorPrimary">#7fa6bc</color>
-    <color name="colorPrimaryDark">#50778c</color>
-    <color name="colorPrimaryLight">#b0d7ee</color>
+    <!--<color name="colorPrimary">#7fa6bc</color>-->
+    <!--<color name="colorPrimaryDark">#50778c</color>-->
+    <!--<color name="colorPrimaryLight">#b0d7ee</color>-->
+
+    <!--<color name="colorPrimary">#ed8e2f</color>-->
+    <color name="colorPrimary">#F6F7F8</color>
+    <color name="colorPrimaryDark">#d6d6d6</color>
+    <color name="colorPrimaryLight">#2c3e50</color>
+
+
     <!--Secundario-->
+    <!--<color name="colorSecondary">#47759e</color>-->
+    <!--<color name="colorSecondaryDark">#0e4a6f</color>-->
+    <!--<color name="colorSecondaryLight">#78a4cf</color>-->
+
     <color name="colorSecondary">#47759e</color>
     <color name="colorSecondaryDark">#0e4a6f</color>
     <color name="colorSecondaryLight">#78a4cf</color>
+
+
     <!--Highlight-->
     <color name="colorHighLight">#bdc5cccf</color>
     <color name="backGray">#F5F5F6</color>

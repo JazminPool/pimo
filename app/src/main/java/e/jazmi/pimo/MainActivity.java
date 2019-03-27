@@ -8,6 +8,9 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.TypefaceSpan;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -30,7 +33,6 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
                                                         Fragment_Faqs_Menu.OnFragmentInteractionListener, Fragment_Info.OnFragmentInteractionListener {
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +44,9 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.TextBlueGray));
+        toolbar.setTitle("P i m o "+ "\uD83D\uDC36");
+
         setSupportActionBar(toolbar);
 
 
@@ -65,6 +70,10 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        Fragment chat = new Fragment_Chat();
+        getSupportFragmentManager().beginTransaction().add(R.id.content_main, chat).commit();
+
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);

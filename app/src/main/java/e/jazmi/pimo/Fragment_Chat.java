@@ -3,6 +3,7 @@ package e.jazmi.pimo;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,7 +20,6 @@ import android.widget.ImageView;
 public class Fragment_Chat extends Fragment {
 
     private Button btn_notificacion;
-    private PendingIntent pendingIntent;
     private final static String CHANNEL_ID = "NOTIFICACION";
     private final static int NOTIFICACION_ID = 0;
 
@@ -56,9 +56,6 @@ public class Fragment_Chat extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-
-
-
         }
     }
 
@@ -90,8 +87,7 @@ public class Fragment_Chat extends Fragment {
         return  view;
     }
 
-
-
+ 
 
 
     // TODO: Rename method, update argument and hook method into UI event

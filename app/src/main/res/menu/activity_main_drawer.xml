@@ -41,6 +41,11 @@
                 android:checkable="true"
                 android:icon="@drawable/ic_menu_info"
                 android:title="Acerca de π - Pimo" />
+            <item
+                android:id="@+id/nav_rank"
+                android:checkable="true"
+                android:icon="@drawable/ic_menu_info"
+                android:title="¡Calificanos!" />
         </menu>
     </item>
 

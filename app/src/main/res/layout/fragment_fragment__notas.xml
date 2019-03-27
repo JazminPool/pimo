@@ -26,18 +26,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="95dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/note"/>
+                android:src="@drawable/n3"/>
 
             <TextView
                 android:id="@+id/title"
-                android:text="Notas"
-                android:fontFamily="@font/montserrat"
-                android:textSize="28dp"
-                android:textColor="@color/TextBlack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
                 android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/cabin"
+                android:text="Notas"
+                android:textColor="@color/TextGrayDark"
+                android:textSize="32sp"
                 app:layout_collapseMode="pin"/>
 
         </android.support.design.widget.CollapsingToolbarLayout>
@@ -66,7 +66,7 @@
         app:layout_anchorGravity="bottom|right|end"
         android:elevation="6dp"
         app:pressedTranslationZ="10dp"
-        app:backgroundTint="@color/colorPrimaryLight"
+        app:backgroundTint="#C2E8EB"
         android:layout_marginRight="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
