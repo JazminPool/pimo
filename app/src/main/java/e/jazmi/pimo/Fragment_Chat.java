@@ -82,7 +82,7 @@ public class Fragment_Chat extends Fragment {
         Bundle bundle = this.getArguments();
         if(bundle !=null){
             int myInt = bundle.getInt("imagen",0);
-            //image.setImageResource(myInt);
+            image.setImageResource(myInt);
         }
         return  view;
     }
