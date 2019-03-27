@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 public class Fragment_Chat extends Fragment {
@@ -71,13 +72,20 @@ public class Fragment_Chat extends Fragment {
 
         // el perro
         ImageView image = (ImageView) view.findViewById(R.id.animacion);
-        image.setY(500);
-        image.setX(350);
-
+        image.setY(480);
+        image.setX(-190);//mover de posicion
+        //el pinche button
+        //Button button = (Button) view.findViewById(R.id.button_chatbox_send);
+        //button.setY(18);
+        //button.setX(480);
+        //El puto edittext
+        //EditText editText = (EditText) view.findViewById(R.id.edittext_chatbox);
+        //editText.setY(40);
+        //editText.setX(350);
         Bundle bundle = this.getArguments();
         if(bundle !=null){
             int myInt = bundle.getInt("imagen",0);
-            image.setImageResource(myInt);
+            //image.setImageResource(myInt);
         }
         return  view;
     }

@@ -45,9 +45,9 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         setSupportActionBar(toolbar);
 
 
-        ImageView image = (ImageView) findViewById(R.id.animacion);
-        image.setY(5);//
-        image.setX(350);
+        //ImageView image = (ImageView) findViewById(R.id.animacion);
+        //image.setY(5);//
+        //image.setX(350);
 
 
 

@@ -10,19 +10,9 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/animacion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="320dp"
-        android:adjustViewBounds="true"
-        android:cropToPadding="false"
-        android:maxWidth="1000dp"
-        android:maxHeight="1000dp"
-        app:lottie_autoPlay="true"
-        app:lottie_fileName="animation-w400-h400.json"
-        app:lottie_loop="true" />
+
+
+
 
 
 </LinearLayout>
