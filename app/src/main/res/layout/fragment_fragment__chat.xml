@@ -24,7 +24,7 @@
         android:maxWidth="800dp"
         android:maxHeight="800dp"
         app:lottie_autoPlay="true"
-        app:lottie_fileName="animation-w400-h400.json"
+        app:lottie_fileName="sinfondo.json"
         app:lottie_loop="true"
 
         />
