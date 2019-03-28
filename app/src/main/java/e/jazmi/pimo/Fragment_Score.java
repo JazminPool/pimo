@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
@@ -73,6 +74,9 @@ public class Fragment_Score extends Fragment {
 
         View vista = inflater.inflate(R.layout.fragment_fragment__score, container, false);
 
+       // ImageView  image = (ImageView) vista.findViewById(R.id.animacion);
+       // image.setY(-500);
+        //image.setX(50);
         score = (RatingBar) vista.findViewById(R.id.score);
         btnSend = (Button) vista.findViewById(R.id.btnSend);
 
