@@ -18,7 +18,7 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import e.jazmi.pimo.Adapters.ChatArrayAdapter;
@@ -30,7 +30,7 @@ public class Fragment_Chat extends Fragment {
     private ChatArrayAdapter chatArrayAdapter;
     private ListView listView;
     private EditText chatText;
-    private Button buttonSendM;
+    private ImageButton buttonSendM;
     private boolean side = false;
 
     private Button btn_notificacion;
@@ -76,6 +76,54 @@ public class Fragment_Chat extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View vista = inflater.inflate(R.layout.fragment_fragment__chat, container, false);
+
+//        setContentView(R.layout.activity_main);
+//        vista.(R.layout.fragment_fragment__chat);
+
+        buttonSendM = (ImageButton) vista.findViewById(R.id.btn_send_msg);
+
+        listView = (ListView) vista.findViewById(R.id.msgview);
+
+        chatArrayAdapter = new ChatArrayAdapter(getContext(), R.layout.pimo_msg);
+        listView.setAdapter(chatArrayAdapter);
+
+        chatText = (EditText) vista.findViewById(R.id.mgs_text);
+        chatText.setOnKeyListener(new View.OnKeyListener() {
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    return sendChatMessage();
+                }
+                return false;
+            }
+        });
+        buttonSendM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                sendChatMessage();
+            }
+        });
+
+        listView.setTranscriptMode(AbsListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
+        listView.setAdapter(chatArrayAdapter);
+
+        //to scroll the list view to bottom on data change
+        chatArrayAdapter.registerDataSetObserver(new DataSetObserver() {
+            @Override
+            public void onChanged() {
+                super.onChanged();
+                listView.setSelection(chatArrayAdapter.getCount() - 1);
+            }
+        });
+
+//        btn_notificacion = vista.findViewById(R.id.btn_notification);
+//        btn_notificacion.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+////                Send_Notificacion();
+//            }
+//        });
+
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_fragment__chat, container, false);
         View view = inflater.inflate(R.layout.fragment_fragment__chat,container,false);
