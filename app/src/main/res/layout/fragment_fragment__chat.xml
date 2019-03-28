@@ -107,7 +107,6 @@
         />
 
 
-
     <ListView
         android:id="@+id/msgview"
         android:layout_width="fill_parent"
