@@ -1,15 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/pt1"
-    android:backgroundTint="#CACAB9"
-    tools:context=".Fragment_Info">
-<!--android:backgroundTint="#4E4E40" android:background="@drawable/pt1" android:background="#FCF9F9"-->
+    tools:context.="Fragment_Info">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animacion2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="320dp"
+        android:adjustViewBounds="true"
+        android:cropToPadding="false"
+
+        android:maxWidth="1000dp"
+        android:maxHeight="1000dp"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="sinfondo.json"
+        app:lottie_loop="true"
+        />
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animacion4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="320dp"
+        android:adjustViewBounds="true"
+        android:cropToPadding="false"
+
+        android:maxWidth="880dp"
+        android:maxHeight="880dp"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="1801-fireworks.json"
+        app:lottie_loop="true"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,7 +51,9 @@
             android:id="@+id/imageView2"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:src="@drawable/pimo2" />
+             />
+
+
 
         <LinearLayout
             android:layout_marginBottom="30dp"
@@ -130,4 +163,7 @@
 
 
     </LinearLayout>
-</LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
+
+

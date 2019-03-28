@@ -72,11 +72,13 @@ public class Fragment_Score extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View vista = inflater.inflate(R.layout.fragment_fragment__score, container, false);
+        final View vista = inflater.inflate(R.layout.fragment_fragment__score, container, false);
 
-       ImageView  image = (ImageView) vista.findViewById(R.id.animacion2);
-       // image.setY(-500);
-        //image.setX(50);
+      // ImageView  image = (ImageView) vista.findViewById(R.id.animacion2);
+      // ImageView image2 = (ImageView) vista.findViewById(R.id.animacion3);
+
+       //image2.setY(-500);
+       //image2.setX(50);
         score = (RatingBar) vista.findViewById(R.id.score);
         btnSend = (Button) vista.findViewById(R.id.btnSend);
 
@@ -91,6 +93,7 @@ public class Fragment_Score extends Fragment {
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //ImageView imageView = (ImageView) vista.findViewById(R.id.animacion2);
                 Toast.makeText(getContext(), "Gracias por tu apoyo! " + score.getRating(), Toast.LENGTH_LONG).show();
             }
         });

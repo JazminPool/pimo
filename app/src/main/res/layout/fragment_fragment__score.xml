@@ -18,10 +18,10 @@
         android:adjustViewBounds="true"
         android:cropToPadding="false"
 
-        android:maxWidth="800dp"
-        android:maxHeight="800dp"
+        android:maxWidth="380dp"
+        android:maxHeight="380dp"
         app:lottie_autoPlay="true"
-        app:lottie_fileName="sinfondo.json"
+        app:lottie_fileName="3152-star-success.json"
         app:lottie_loop="true"
         />
 
