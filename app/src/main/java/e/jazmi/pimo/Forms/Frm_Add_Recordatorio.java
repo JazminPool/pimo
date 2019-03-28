@@ -76,7 +76,7 @@ public class Frm_Add_Recordatorio extends AppCompatActivity {
         show_Time();
 
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.4:2500/api/")
+                .baseUrl("http://192.168.137.204:2500/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         recordatoriosInterface = retrofit.create(RecordatoriosInterface.class);

@@ -50,7 +50,7 @@ public class Frm_Add_Nota extends AppCompatActivity {
         /**floating de guardar**/
 
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.4:2500/api/")
+                .baseUrl("http://192.168.137.204:2500/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         service = retrofit.create(NotasService.class);
