@@ -102,7 +102,7 @@ public class Fragment_Contact extends Fragment {
         recycler_content_directorio.setLayoutManager(layoutManager);
 
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.137.204:2500/api/")
+                .baseUrl("http://192.168.1.4:2500/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

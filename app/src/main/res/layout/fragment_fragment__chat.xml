@@ -33,19 +33,20 @@
         app:lottie_fileName="sinfondo.json"
         app:lottie_loop="true"
 
-        />
-
+        tools:ignore="MissingConstraints" />
 
 
     <ListView
         android:id="@+id/msgview"
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
+        android:layout_height="788dp"
         android:layout_weight="1"
         android:background="@null"
         android:divider="@null"
         android:stackFromBottom="true"
-        android:transcriptMode="alwaysScroll"></ListView>
+        android:transcriptMode="alwaysScroll"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="-57dp"></ListView>
 
 
     <!-- A horizontal line between the chatbox and RecyclerView -->
