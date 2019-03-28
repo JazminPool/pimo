@@ -17,8 +17,8 @@ public class Adapter_recordatorios extends RecyclerView.Adapter<Adapter_recordat
     //hago instancia a la lista que viene de la clase Atributos_Nota
     private ArrayList<Atributos_Recordatorios> list_recordatorios;
 
-    public Adapter_recordatorios(){
-        list_recordatorios = new ArrayList<>();
+    public Adapter_recordatorios(ArrayList<Atributos_Recordatorios> list_recordatorios){
+        this.list_recordatorios = new ArrayList<>();
     }
 
 

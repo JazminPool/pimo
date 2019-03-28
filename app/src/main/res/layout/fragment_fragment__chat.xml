@@ -11,10 +11,29 @@
 
 
     <!--<Button-->
-        <!--android:id="@+id/btn_notification"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="Notificacion" />-->
+    <!--android:id="@+id/btn_notification"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="Notificacion" />-->
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="320dp"
+        android:adjustViewBounds="true"
+        android:cropToPadding="false"
+
+        android:maxWidth="800dp"
+        android:maxHeight="800dp"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="sinfondo.json"
+        app:lottie_loop="true"
+
+        />
 
 
 
