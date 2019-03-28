@@ -8,6 +8,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,13 @@ import java.util.ArrayList;
 import e.jazmi.pimo.Adapters.Adapter_recordatorios;
 import e.jazmi.pimo.Atributos.Atributos_Recordatorios;
 import e.jazmi.pimo.Forms.Frm_Add_Recordatorio;
+import e.jazmi.pimo.Response.RecordatoriosResponse;
+import e.jazmi.pimo.Services.RecordatoriosInterface;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 /**
@@ -39,8 +47,11 @@ public class Fragment_Recordatorios extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    ArrayList<Atributos_Recordatorios> list_recordatorios;
-    RecyclerView recycler_content_recordatorio;
+    private static final String TAG = "RECLIST";
+
+    private RecyclerView recycler_content_recordatorio;
+    private Adapter_recordatorios adapter;
+    private Retrofit retrofit;
 
 
     public Fragment_Recordatorios() {
@@ -79,14 +90,20 @@ public class Fragment_Recordatorios extends Fragment {
                              Bundle savedInstanceState) {
 
         View vista = inflater.inflate(R.layout.fragment_fragment__recordatorios, container, false);
-        list_recordatorios = new ArrayList<>();
         recycler_content_recordatorio = (RecyclerView) vista.findViewById(R.id.container_recycler_recordatorios_id);
-        recycler_content_recordatorio.setLayoutManager(new LinearLayoutManager(getContext()));
+        adapter = new Adapter_recordatorios();
+        recycler_content_recordatorio.setAdapter(adapter);
+
+        recycler_content_recordatorio.setHasFixedSize(true);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        recycler_content_recordatorio.setLayoutManager(layoutManager);
+
+        retrofit = new Retrofit.Builder()
+                .baseUrl("http://192.168.103.42:2500/api/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
 
         get_recordatorios();
-
-        Adapter_recordatorios adapter_recordatorios = new Adapter_recordatorios(list_recordatorios);
-        recycler_content_recordatorio.setAdapter(adapter_recordatorios);
 
         /**ir a activity*/
         FloatingActionButton fab= vista.findViewById(R.id.fab_recordatorios);
@@ -105,6 +122,7 @@ public class Fragment_Recordatorios extends Fragment {
 
     //aqui es donde se llena el recycler
     public void get_recordatorios(){
+<<<<<<< HEAD
         list_recordatorios.add(new Atributos_Recordatorios( "Examen de Xiu",
                                                             "Hora: 15:00 pm",
                                                             "Fecha: 04-02-2019",
@@ -132,7 +150,33 @@ public class Fragment_Recordatorios extends Fragment {
                                                             "Hora: 10:50 am",
                                                             "Fecha: 02-02-2019",
                                                             "Entregar su app con menu de navegacion"));
+=======
+        RecordatoriosInterface service = retrofit.create(RecordatoriosInterface.class);
+        Call<RecordatoriosResponse> recordatoriosResponseCall = service.getAll();
+        recordatoriosResponseCall.enqueue(new Callback<RecordatoriosResponse>() {
+            @Override
+            public void onResponse(Call<RecordatoriosResponse> call, Response<RecordatoriosResponse> response) {
+                if(response.isSuccessful())
+                {
+                    RecordatoriosResponse recordatoriosResponse = response.body();
+                    ArrayList<Atributos_Recordatorios> recordatorios = recordatoriosResponse.getList();
 
+                    adapter.addRecordatorios(recordatorios);
+                    for (int i = 0; i < recordatorios.size(); i++) {
+                        Atributos_Recordatorios n = recordatorios.get(i);
+                        Log.i(TAG, "Recordatorio: " + n.getNombre());
+                    }
+                }else{
+                    Log.e(TAG,"OnResponse: "+response.errorBody());
+                }
+            }
+>>>>>>> 0c23287aeef87f1c47e279d8257e6469f23b9adc
+
+            @Override
+            public void onFailure(Call<RecordatoriosResponse> call, Throwable t) {
+                Log.e(TAG,"OnFail: "+t.getMessage());
+            }
+        });
     }
 
 
