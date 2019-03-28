@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -31,7 +32,7 @@ public class Fragment_Chat extends Fragment {
     private ChatArrayAdapter chatArrayAdapter;
     private ListView listView;
     private EditText chatText;
-    private Button buttonSendM;
+    private ImageButton buttonSendM;
     private boolean side = false;
 
     private Button btn_notificacion;
@@ -85,6 +86,8 @@ public class Fragment_Chat extends Fragment {
         imageView.setX(-190);
 
         buttonSendM = (Button) vista.findViewById(R.id.btn_send_msg);
+
+        buttonSendM = (ImageButton) vista.findViewById(R.id.btn_send_msg);
 
         listView = (ListView) vista.findViewById(R.id.msgview);
 
