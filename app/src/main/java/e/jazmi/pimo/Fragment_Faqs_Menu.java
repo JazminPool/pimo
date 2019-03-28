@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 
 
 /**
@@ -63,8 +65,10 @@ public class Fragment_Faqs_Menu extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View vista = inflater.inflate(R.layout.fragment_fragment__chat, container, false);
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment__faqs__menu, container, false);
+        return vista;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

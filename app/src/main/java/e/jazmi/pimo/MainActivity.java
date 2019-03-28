@@ -38,8 +38,8 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
 
 
         //dos lineas magicas que hacen el fullscreen :)
-//        requestWindowFeature(Window.FEATURE_NO_TITLE);
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

@@ -5,9 +5,86 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="@color/colorText_Subtitle_Gray"
+    android:backgroundTint="#C7C6C6"
     android:background="@drawable/pt3"
     tools:context=".Fragment_Chat">
+
+    <!--<LinearLayout-->
+
+        <!--android:orientation="vertical"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
+
+        <ListView
+            android:id="@+id/msgview"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:divider="@null"
+            android:stackFromBottom="true"
+            app:layout_constraintTop_toTopOf="parent"
+            android:paddingTop="15dp"
+            android:paddingBottom="55dp"
+            android:layout_marginBottom="20dp"
+            android:transcriptMode="normal"></ListView>
+
+
+        <!--&lt;!&ndash; A horizontal line between the chatbox and RecyclerView &ndash;&gt;-->
+        <!--<View-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="2dp"-->
+            <!--android:background="#dfdfdf"-->
+            <!--android:layout_marginBottom="0dp"-->
+            <!--app:layout_constraintBottom_toTopOf="@+id/layout_chatbox"-->
+            <!--app:layout_constraintLeft_toLeftOf="parent"-->
+            <!--app:layout_constraintRight_toRightOf="parent"/>-->
+
+        <LinearLayout
+            android:id="@+id/layout_chatbox"
+            android:layout_width="0dp"
+            android:padding="8dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:minHeight="48dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent">
+
+
+            <EditText
+                android:id="@+id/mgs_text"
+                android:hint="Vamos, dile algo a Pimo"
+                android:fontFamily="@font/cabin"
+                android:textColor="@color/TextBlueGray"
+                android:layout_gravity="center"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:maxLines="6"
+                android:shadowRadius="@android:integer/config_shortAnimTime"
+                android:elevation="2dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_msg_write"/>
+
+            <ImageButton
+                android:id="@+id/btn_send_msg"
+                android:src="@drawable/ic_action_send"
+                android:elevation="2dp"
+                android:background="@drawable/bg_btn_send"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:layout_gravity="bottom" />
+
+        </LinearLayout>
+
+    <!--</LinearLayout>-->
 
 
     <!--<Button-->
@@ -18,64 +95,7 @@
 
 
 
-    <ListView
-        android:id="@+id/msgview"
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@null"
-        android:divider="@null"
-        android:stackFromBottom="true"
-        android:transcriptMode="alwaysScroll"></ListView>
 
-
-    <!-- A horizontal line between the chatbox and RecyclerView -->
-    <View
-        android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:background="#dfdfdf"
-        android:layout_marginBottom="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/layout_chatbox"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
-
-    <LinearLayout
-        android:id="@+id/layout_chatbox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:minHeight="48dp"
-        android:background="#ffffff"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent">
-
-        <EditText
-            android:id="@+id/mgs_text"
-            android:hint="Vamos, dile algo a Pimo"
-            android:fontFamily="@font/cabin"
-            android:textColor="@color/TextBlueGray"
-            android:layout_gravity="center"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:maxLines="6"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"/>
-
-        <Button
-            android:id="@+id/btn_send_msg"
-            android:text="ENVIAR"
-            android:textSize="14dp"
-            android:background="?attr/selectableItemBackground"
-            android:clickable="true"
-            android:layout_width="64dp"
-            android:layout_height="48dp"
-            android:gravity="center"
-            android:layout_gravity="bottom" />
-
-    </LinearLayout>
 
 
 </android.support.constraint.ConstraintLayout>
