@@ -74,7 +74,7 @@ public class Fragment_Score extends Fragment {
 
         View vista = inflater.inflate(R.layout.fragment_fragment__score, container, false);
 
-       // ImageView  image = (ImageView) vista.findViewById(R.id.animacion);
+       ImageView  image = (ImageView) vista.findViewById(R.id.animacion2);
        // image.setY(-500);
         //image.setX(50);
         score = (RatingBar) vista.findViewById(R.id.score);

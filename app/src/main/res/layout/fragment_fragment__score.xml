@@ -1,13 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:background="@color/backGray"
-    tools:context=".Fragment_Score">
 
+    tools:context.="Fragment_Score">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animacion2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="320dp"
+        android:adjustViewBounds="true"
+        android:cropToPadding="false"
+
+        android:maxWidth="800dp"
+        android:maxHeight="800dp"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="sinfondo.json"
+        app:lottie_loop="true"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,7 +35,7 @@
             android:id="@+id/imgp2"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:src="@drawable/pimo2" />
+             />
 
 
         <LinearLayout
@@ -60,4 +76,8 @@
 
 
     </LinearLayout>
-</LinearLayout>
+
+
+
+
+</android.support.constraint.ConstraintLayout>
